@@ -13,16 +13,26 @@ export class App implements OnInit {
 
   private http = inject(HttpClient);
   protected title = 'Dating App';
+  protected members: any[] = []; //any will turn off typescript for users property
+  protected fixedAssets: any[] = [];
 
   //old
   // constructor(private http: HttpClient){}
 
     ngOnInit(): void {
       // throw new Error('Method not implemented');
+      //members
       this.http.get('https://localhost:5001/api/users').subscribe({
-        next: response => console.log(response),
+        next: response => this.members = response as any[],
         error: error => console.log(error),
         complete: () => console.log('Completed the http request')
+      });
+
+      //fixedassets
+       this.http.get('https://localhost:5001/api/fixedassets').subscribe({
+        next: response => this.fixedAssets = response as any[],
+        error: error => console.log(error),
+        complete: () => console.log('Completed  fixed assets request')
       });
   }
 }

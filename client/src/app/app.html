@@ -1,1 +1,13 @@
 <h1>{{title}}!!</h1>
+
+<ul>
+  @for (member of members; track member.id){
+    <li>{{member.id}} - {{member.fullName}}</li>
+  }
+</ul>
+
+<ul>
+  @for(asset of fixedAssets; track asset.id){
+    <li>{{asset.name}} - {{asset.category}} - {{asset.purchaseDate}}</li>
+  }
+</ul>

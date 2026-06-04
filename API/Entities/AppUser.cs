@@ -4,7 +4,7 @@ namespace API.Entities;
 
 public class AppUser{
     //ID
-    public required string Id 
+    public string Id 
     { 
         get; 
         set; 
